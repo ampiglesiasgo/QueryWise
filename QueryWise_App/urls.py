@@ -22,4 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('oauth2/', include('django_auth_adfs.urls')),
     path("", include("app.urls")),
+    path('api-auth/', include('rest_framework.urls'))
 ]
