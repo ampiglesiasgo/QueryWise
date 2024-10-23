@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     "django_rest_framework"
     "QueryWiseApp",
     "login",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.microsoft"
 ]
 
 MIDDLEWARE = [
@@ -114,6 +119,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+SITE_ID = 1 # Configuracion del dominio
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
