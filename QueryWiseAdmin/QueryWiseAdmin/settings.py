@@ -130,3 +130,13 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SOCIALACCOUNT_PROVIDERS = {
+    'microsoft': {
+        'APP':{
+            'client_id': 'CLIENT_ID',
+            'secret': 'SECRET',
+            'key': ''
+        }
+    }
+}
