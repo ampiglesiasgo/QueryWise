@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_auth_afs",
+    "django_auth_adfs",
+    "app",
 ]
 
 MIDDLEWARE = [
@@ -48,6 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django_auth_adfs.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = "QueryWise_App.urls"
@@ -123,9 +129,13 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-AUTHENTICATION_BACKENDS = (
-    'django_auth_adfs.backend.AdfsAuthCodeBackend'
-)
+# Add the authentication backend
+AUTHENTICATION_BACKENDS = [
+    'django_auth_adfs.backend.AdfsAuthCodeBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 
 # Configure django to redirect users to the right URL for login
 LOGIN_URL = "django_auth_adfs:login"
@@ -133,9 +143,9 @@ LOGIN_REDIRECT_URL = "/"
 
 # Client secret is not public information. Should store it as an environment variable.
 
-client_id = 'Your client id here'
-client_secret = 'Your client secret here'
-tenant_id = 'Your tenant id here'
+client_id = os.getenv('client_id')
+client_secret = os.getenv('client_secret')
+tenant_id = os.getenv('tenant_id')
 
 #Configure the ADFS settings
 AUTH_ADFS = {
