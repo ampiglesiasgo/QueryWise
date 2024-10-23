@@ -1,0 +1,45 @@
+.env/
+env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+venv/
+ENV/
+env.bak/
+venv.bak/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Installer logs
+pip-wheel-metadata/
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+/media
+/staticfiles
+
+# Sphinx documentation
+docs/_build/
+build/
+dist/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Python virtu
