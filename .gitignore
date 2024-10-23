@@ -1,5 +1,6 @@
 .env/
 env
+env/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -37,7 +38,7 @@ dist/
 .vscode/
 
 # PyCharm
-.idea/
+.idea/*
 
 # Jupyter Notebook
 .ipynb_checkpoints
