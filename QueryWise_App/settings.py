@@ -130,3 +130,24 @@ AUTHENTICATION_BACKENDS = (
 # Configure django to redirect users to the right URL for login
 LOGIN_URL = "django_auth_adfs:login"
 LOGIN_REDIRECT_URL = "/"
+
+# Client secret is not public information. Should store it as an environment variable.
+
+client_id = 'Your client id here'
+client_secret = 'Your client secret here'
+tenant_id = 'Your tenant id here'
+
+#Configure the ADFS settings
+AUTH_ADFS = {
+    'AUDIENCE': client_id,
+    'CLIENT_ID': client_id,
+    'CLIENT_SECRET': client_secret,
+    'CLAIM_MAPPING': {'first_name': 'given_name',
+                      'last_name': 'family_name',
+                      'email': 'upn'},
+    'GROUPS_CLAIM': 'roles',
+    'MIRROR_GROUPS': True,
+    'USERNAME_CLAIM': 'upn',
+    'TENANT_ID': tenant_id,
+    'RELYING_PARTY_ID': client_id,
+}
