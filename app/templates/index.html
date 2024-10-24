@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Wise</title>
+    <link rel="stylesheet" type="text/css" href="../static/app/styles.css">  <!-- Enlace al CSS -->
+</head>
+<body>
+    <h1>Django + Azure AI Application</h1>
+    <button id="login-button">Iniciar sesión con Azure AD</button>
+
+    <script>
+        const loginButton = document.getElementById('login-button');
+        loginButton.addEventListener('click', () => {
+            window.location.href = '{% url "django_auth_adfs:login" %}'; // Reemplaza "azure_login" con la URL de tu vista de login
+        });
+    </script>
+</body>
+</html>

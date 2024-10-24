@@ -7,41 +7,14 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
 # Crear tu vista de inicio de sesión exitoso
+def index(request):
+    return render(request, 'index.html')
+
+
 def login_successfull(request):
-    code = request.GET.get('code')  # Captura el código de autorización de la URL
-    if code:
-        # Intercambiar el código por un token de acceso
-        token_url = f'https://login.microsoftonline.com/{settings.tenant_id}/oauth2/v2.0/token'
-        payload = {
-            'client_id': settings.client_id,
-            'client_secret': settings.client_secret,
-            'code': code,
-            'redirect_uri': settings.login_redirect_url,
-            'grant_type': 'authorization_code'
-        }
-
-        # Realizar la solicitud para obtener el token
-        response = requests.post(token_url, data=payload)
-        token_data = response.json()
-        print("Respuesta de token:", token_data)
-
-        # Captura el token de acceso
-        access_token = token_data.get('access_token')
-
-        if access_token:
-            # Almacena el token en la sesión (o en tu preferido)
-            request.session['access_token'] = access_token
-            print('-' * 60)
-            print("     Login con Microsoft AD exitoso")
-            print(f"     Token de acceso: {access_token}")
-            print('-' * 60)
-        else:
-            print("Error al obtener el token de acceso:", token_data)
-
-    access_token = request.session.get('access_token')  # Usar .get() para evitar KeyError
-    print("     Redirigiendo a la página de inicio")
-    print("data: ", )  # No causará un error si el token no está presente
-
+    print('-'*60)
+    print("     Login con Microsoft AD exitoso")
+    print('-' * 60)
     return render(request, 'home.html')
 
 
