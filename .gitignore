@@ -45,3 +45,5 @@ dist/
 .ipynb_checkpoints
 
 # Python virtu
+/notebooks/.ipynb_checkpoints
+/node_modules/
