@@ -16,7 +16,22 @@ def login_successfull(request):
         print('-'*60)
         print("     Login con Microsoft AD exitoso")
         print('-' * 60)
-        return render(request, 'home.html')
+        print("Usuario: ", request.user)
+        print("Nombre: ", request.user.first_name)
+        print("Apellido: ", request.user.last_name)
+        print("Detalles de usuario:", request.user.__dict__)
+
+        context = {
+            'user': request.user,
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+            'email': request.user.email,
+            'staff': request.user.is_staff,
+            'superuser': request.user.is_superuser,
+            'date_joined': request.user.date_joined,
+            'permissions': request.user.user_permissions.all().values('name'),
+        }
+        return render(request, 'home.html', context)
     else:
         return redirect('index')
 
