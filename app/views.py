@@ -12,10 +12,13 @@ def index(request):
 
 
 def login_successfull(request):
-    print('-'*60)
-    print("     Login con Microsoft AD exitoso")
-    print('-' * 60)
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        print('-'*60)
+        print("     Login con Microsoft AD exitoso")
+        print('-' * 60)
+        return render(request, 'home.html')
+    else:
+        return redirect('index')
 
 
 

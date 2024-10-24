@@ -24,6 +24,5 @@ urlpatterns = [
     path('oauth2/', include('django_auth_adfs.urls')),
     path("", include("app.urls")),
     path('api-auth/', include('rest_framework.urls')),
-    path('api-auth/', include('rest_framework.urls')),  # Autenticación para la API de DRF
     path('api/chat/', ChatAPIView.as_view(), name='chat-api'),  # Ruta para tu API de chat
 ]
