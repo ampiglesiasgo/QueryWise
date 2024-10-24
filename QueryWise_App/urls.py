@@ -17,10 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from app.views import ChatAPIView  # Asegúrate de importar la vista de tu API
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('oauth2/', include('django_auth_adfs.urls')),
     path("", include("app.urls")),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+    path('api-auth/', include('rest_framework.urls')),  # Autenticación para la API de DRF
+    path('api/chat/', ChatAPIView.as_view(), name='chat-api'),  # Ruta para tu API de chat
 ]
