@@ -95,7 +95,10 @@ COMPRESS_ENABLED = True
 
 STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
-
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -131,8 +134,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -142,6 +143,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTHENTICATION_BACKENDS = [
     'django_auth_adfs.backend.AdfsAuthCodeBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'django_auth_adfs.backend.AdfsAccessTokenBackend',
 ]
 
 
@@ -169,11 +171,18 @@ AUTH_ADFS = {
     'USERNAME_CLAIM': 'upn',
     'TENANT_ID': tenant_id,
     'RELYING_PARTY_ID': client_id,
+    'LOGIN_EXEMPT_URLS': [
+        '^api/',  # Assuming you API is available at /api
+    ],
 }
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'django_auth_adfs.rest_framework.AdfsAccessTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
