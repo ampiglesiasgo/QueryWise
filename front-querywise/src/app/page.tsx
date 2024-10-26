@@ -134,7 +134,7 @@ export default function Example() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button
                 id='login-auth'
-                onClick={() => signIn('azure-ad', { callbackUrl: 'http://localhost:3000/dashboard' })}
+                onClick={() => signIn('azure-ad', { callbackUrl: 'https://ashy-island-090c6410f.5.azurestaticapps.net/dashboard' })}
                 className="rounded-md bg-teal-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get started with Azure AD
