@@ -49,7 +49,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         items: [
           {
             title: "New Chat",
-            url: "#",
+            url: "/chat",
           },
           {
             title: "History",
