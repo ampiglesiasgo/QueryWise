@@ -28,6 +28,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { Button } from "./ui/button"
+import { XMarkIcon } from '@heroicons/react/24/outline';
+import SupportFeedbackForm from "./supportFeedback"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { data: session } = useSession(); // Obtener la sesión
@@ -160,7 +163,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+
+          <SupportFeedbackForm/>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={userData} /> {/* Pasar la información del usuario */}

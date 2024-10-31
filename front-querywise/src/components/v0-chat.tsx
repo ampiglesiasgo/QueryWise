@@ -73,9 +73,9 @@ export function V0Chat() {
             <>
               <h1 className="text-4xl font-bold text-center mt-20 mb-8">What can I help you ship?</h1>
               <div className="flex flex-wrap justify-center gap-2 text-sm">
-                <Button variant="outline" className="rounded-full">Generate a sticky header ↗</Button>
-                <Button variant="outline" className="rounded-full">How can I schedule cron jobs? ↗</Button>
-                <Button variant="outline" className="rounded-full">A function to flatten nested arrays ↗</Button>
+                <Button variant="outline" className="rounded-full">See the best selling product ↗</Button>
+                <Button variant="outline" className="rounded-full">See the year with the most sales ↗</Button>
+                <Button variant="outline" className="rounded-full">View the latest highlights of the year ↗</Button>
               </div>
             </>
           ) : (
