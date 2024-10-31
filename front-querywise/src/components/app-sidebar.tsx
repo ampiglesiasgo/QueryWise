@@ -48,41 +48,22 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         isActive: true,
         items: [
           {
-            title: "New Chat",
+            title: "Chat",
             url: "/chat",
           },
           {
-            title: "History",
-            url: "#",
+            title: "Dashboard",
+            url: "/dashboard",
           },
           {
-            title: "Starred",
-            url: "#",
-          },
-        ],
-      },
-      {
-        title: "Models",
-        url: "#",
-        icon: Bot,
-        items: [
-          {
-            title: "GPT-3.5",
-            url: "#",
-          },
-          {
-            title: "GPT-4",
-            url: "#",
-          },
-          {
-            title: "text-davinci-003",
+            title: "Reports",
             url: "#",
           },
         ],
       },
       {
         title: "Documentation",
-        url: "#",
+        url: "/docs",
         icon: BookOpen,
         items: [
           {
@@ -179,7 +160,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>

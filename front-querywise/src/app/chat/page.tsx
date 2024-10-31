@@ -19,9 +19,7 @@ import {
 export default function Page() {
   return (
     <SidebarProvider>
-      <AppSidebar />
-        <SidebarInset>
-          <SidebarTrigger className="-ml-1" />
+      <SidebarInset>
             <V0Chat />
       </SidebarInset>
     </SidebarProvider>

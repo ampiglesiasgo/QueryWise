@@ -64,13 +64,7 @@ export function V0Chat() {
   return (
     <div className="flex flex-col h-screen bg-white text-black">
       {/* Header */}
-      <header className="flex justify-between items-center p-4 border-b">
-        <div className="text-2xl font-bold">QueryWise AI Chat</div>
-        <div>
-          <Button variant="ghost" className="mr-2">Sign In</Button>
-          <Button>Sign Up</Button>
-        </div>
-      </header>
+
 
       {/* Main content */}
       <main className="flex-1 overflow-auto p-4">
@@ -88,7 +82,7 @@ export function V0Chat() {
             <div className="space-y-4">
               {messages.map((message, index) => (
                 <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>
+                  <div className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user' ? 'bg-teal-950 text-white' : 'bg-gray-200'}`}>
                     {message.role === 'assistant' ? (
                       <ReactMarkdown>{message.content}</ReactMarkdown>
                     ) : (

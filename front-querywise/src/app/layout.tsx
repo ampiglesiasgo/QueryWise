@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
 import SessionLayout from "@/components/SessionLayout";
+import { Sidebar, SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 
 
@@ -29,7 +30,12 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SessionLayout>
-          {children}
+          <SidebarProvider>
+            <AppSidebar />
+            <SidebarInset>
+              {children}
+            </SidebarInset>
+          </SidebarProvider>
         </SessionLayout>
       </body>
     </html>
