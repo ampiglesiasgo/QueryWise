@@ -1,7 +1,7 @@
 'use client';
 
 import ReactMarkdown from 'react-markdown';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Paperclip, ArrowUp, Plus, Database } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,6 +18,8 @@ export function V0Chat() {
   const [dbService, setDbService] = useState('');
   const [connectionString, setConnectionString] = useState('');
   const [fileSource, setFileSource] = useState('local');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSendMessage = async () => {
     if (input.trim()) {
@@ -60,6 +62,13 @@ export function V0Chat() {
     console.log(`Uploading file from: ${source}`);
     setIsFileDialogOpen(false);
   };
+
+  
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedFile(e.target.files[0])
+    }
+  }
 
   return (
     <div className="flex flex-col h-screen bg-white text-black">
@@ -133,6 +142,24 @@ export function V0Chat() {
                     </Label>
                   </div>
                 </RadioGroup>
+                {fileSource === 'local' && (
+                  <div className="flex flex-col items-center justify-center pt-4">
+                    <input
+                      type="file"
+                      ref={fileInputRef}
+                      onChange={handleFileSelect}
+                      className="hidden"
+                    />
+                    <Button onClick={() => fileInputRef.current?.click()}>
+                      Choose File
+                    </Button>
+                    {selectedFile && (
+                      <p className="mt-2 text-sm text-gray-500">
+                        Selected file: {selectedFile.name}
+                      </p>
+                    )}
+                  </div>
+                )}
                 <Button onClick={() => handleFileUpload(fileSource)}>Upload</Button>
               </DialogContent>
             </Dialog>
