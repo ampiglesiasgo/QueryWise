@@ -1,0 +1,3 @@
+[submodule "queryWiseManagerHTTP"]
+	path = queryWiseManagerHTTP
+	url = https://github.com/ampiglesiasgo/queryWiseManagerHTTP.git
