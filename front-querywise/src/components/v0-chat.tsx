@@ -9,6 +9,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Alert } from "@/components/ui/alert";
+import { AlertDialog } from '@radix-ui/react-alert-dialog';
 
 export function V0Chat() {
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
@@ -20,6 +22,8 @@ export function V0Chat() {
   const [fileSource, setFileSource] = useState('local');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [alert, setAlert] = useState({ visible: false, message: '', type: 'success' });
+
 
   const handleSendMessage = async () => {
     if (input.trim()) {
@@ -57,12 +61,7 @@ export function V0Chat() {
     console.log(`Connecting to ${dbService} with: ${connectionString}`);
     setIsDbDialogOpen(false);
   };
-
-  const handleFileUpload = (source: string) => {
-    console.log(`Uploading file from: ${source}`);
-    setIsFileDialogOpen(false);
-  };
-
+  
   
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -70,10 +69,37 @@ export function V0Chat() {
     }
   }
 
+  const handleFileUpload = async () => {
+    if (!selectedFile) {
+      setAlert({ visible: true, message: 'Please select a file to upload', type: 'error' });
+      return;
+  }
+
+    const formData = new FormData();
+      formData.append('file', selectedFile);
+
+  
+    try {
+      const response = await fetch('https://uploadtoblobazfuncv1.azurewebsites.net/api/UploadToBlobAzureV1?', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error(`API responded with status ${response.status}`);
+
+      const result = await response.text();
+      console.log('File upload successful:', result);
+      setAlert({ visible: true, message: 'File uploaded successfully', type: 'success' });
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      setAlert({ visible: true, message: 'Error uploading file', type: 'error' });
+    } finally {
+      setIsFileDialogOpen(false); // Cerrar el diálogo al completar la subida
+    }
+  };  
+
   return (
     <div className="flex flex-col h-screen bg-white text-black">
-      {/* Header */}
-
 
       {/* Main content */}
       <main className="flex-1 overflow-auto p-4">
@@ -160,7 +186,7 @@ export function V0Chat() {
                     )}
                   </div>
                 )}
-                <Button onClick={() => handleFileUpload(fileSource)}>Upload</Button>
+                <Button onClick={handleFileUpload}>Upload</Button>
               </DialogContent>
             </Dialog>
             <Input

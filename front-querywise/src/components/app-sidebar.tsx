@@ -48,7 +48,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         title: "Playground",
         url: "#",
         icon: SquareTerminal,
-        isActive: true,
+        isActive: false,
         items: [
           {
             title: "Chat",
