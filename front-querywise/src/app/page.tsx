@@ -7,10 +7,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Button } from '@/components/ui/button'
 
 const navigation = [
-  { name: 'FAQs', href: '#' },
+  { name: 'FAQs', href: '/faqs' },
   { name: 'Repository', href: 'https://github.com/Ezzz-Lui/QueryWise' },
   { name: 'Showcase', href: '#' },
-  { name: 'Docs', href: '#' },
+  { name: 'Docs', href: '/docs' },
 ]
 
 export default function Example() {
