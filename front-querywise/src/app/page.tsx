@@ -7,9 +7,9 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Button } from '@/components/ui/button'
 
 const navigation = [
-  { name: 'Azure', href: 'https://azure.microsoft.com/es-es' },
-  { name: 'Django', href: 'https://www.djangoproject.com/' },
-  { name: 'NextJs', href: 'https://nextjs.org/' },
+  { name: 'FAQs', href: '#' },
+  { name: 'Repository', href: 'https://github.com/Ezzz-Lui/QueryWise' },
+  { name: 'Showcase', href: '#' },
   { name: 'Docs', href: '#' },
 ]
 
@@ -44,8 +44,8 @@ export default function Example() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-              Log in <span aria-hidden="true">&rarr;</span>
+            <a href="/developers" className="text-sm font-semibold leading-6 text-gray-900">
+              About us <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
@@ -81,10 +81,10 @@ export default function Example() {
                 </div>
                 <div className="py-6">
                   <a
-                    href="#"
+                    href="developers"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Log in
+                    About us
                   </a>
                 </div>
               </div>
@@ -98,29 +98,14 @@ export default function Example() {
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         >
-          <div
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-teal-600 to-teal-800 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          />
-          <div
-            style={{
-              clipPath:
-                'polygon(25.9% 44.1%, 0% 61.6%, 2.5% 26.9%, 14.5% 0.1%, 19.3% 2%, 27.5% 32.5%, 39.8% 62.4%, 47.6% 68.1%, 52.5% 58.3%, 54.8% 34.5%, 72.5% 76.7%, 99.9% 64.9%, 82.1% 100%, 72.4% 76.8%, 23.9% 97.7%, 25.9% 44.1%)',
-            }}
-            className="relative right-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-teal-600 to-teal-800 opacity-30 sm:right-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          />
-          
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto py-32 sm:py-48 lg:py-48">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               CTRL + B {' '}
               <a href="#" className="font-semibold text-teal-700">
                 <span aria-hidden="true" className="absolute inset-0" />
-                Activate Sidebar!<span aria-hidden="true">&rarr;</span>
+                Switch Sidebar!<span aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -129,7 +114,7 @@ export default function Example() {
               Chat with your data to enrich online business
             </h1>
             <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
-              Simplify your data analysis with Azure AI and Django. Get insights in real time to improve your online business.
+              Simplify your data analysis with Azure AI. Get insights in real time to improve your online business.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button
