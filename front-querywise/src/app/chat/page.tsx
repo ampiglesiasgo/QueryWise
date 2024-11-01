@@ -14,17 +14,17 @@ export default function Page() {
   const loadingTime = 5000; // Tiempo de carga en milisegundos
 
   useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push("/");
-    } else if (status === 'authenticated') {
+    // if (status === 'unauthenticated') {
+    //   router.push("/"); // Redirect to home if unauthenticated
+    // } else if (status === 'authenticated') {
       // Si ya está autenticado, se espera el tiempo de carga antes de mostrar el contenido
       const timer = setTimeout(() => {
         setIsLoading(false);
       }, loadingTime);
 
       return () => clearTimeout(timer); // Limpia el temporizador al desmontar
-    }
-  }, [status, router, loadingTime]);
+    // }
+  }, [status, router, loadingTime]);  
 
   // Renderiza el componente de carga personalizado
   if (isLoading || status === "loading") return <PantallaDeCarga />;

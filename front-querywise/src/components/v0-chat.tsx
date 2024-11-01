@@ -9,8 +9,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Alert } from "@/components/ui/alert";
-import { AlertDialog } from '@radix-ui/react-alert-dialog';
 
 export function V0Chat() {
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
