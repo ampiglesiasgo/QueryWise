@@ -1,5 +1,6 @@
 # QueryWise
-Creación de consultas SQL a partir de lenguaje natural
+Creación de consultas SQL a partir de lenguaje natural.
+El objetivo principal es desarrollar una aplicación web con Backend aprovisionado desde azure, con autenticación mediante Microsoft, que permita a los usuarios acceder a datos cargados en formato Excel, procesarlos mediante inteligencia artificial y realizar consultas en lenguaje natural. Esta plataforma se implementará como una solución altamente escalable, utilizando la infraestructura de Azure y componentes de Microsoft para crear un sistema robusto que facilite la interpretación de grandes volúmenes de datos. La solución está diseñada para optimizar la gestión administrativa y el control de consumo de recursos en empresas, ofreciendo herramientas avanzadas y eficientes para la toma de decisiones. QueryWise proporciona herramientas avanzadas y eficientes para la toma de decisiones.
 
 ## Tecnologías
 ![React](https://skillicons.dev/icons?i=nodejs,ts,js,python,nextjs,azure)
